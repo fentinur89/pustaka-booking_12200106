@@ -3,13 +3,9 @@
 namespace App\Controllers;
 
 use App\Models\Pengguna12200106;
-use Config\Service;
 
 class Login extends BaseController
 {
-    public function cekLoginDB(){
-
-    }
     public function cekLogin()
     {
         $email = $this->request->getPost('email');
@@ -32,13 +28,13 @@ class Login extends BaseController
 
         if ($v == false) {
             $this->session->setFlashdata('validator, $this->validator');
-            return redirect()->to('/Login');
+            return redirect()->to('/login');
         } else {
 
             $vl = (new Pengguna12200106())->cekLogin($email, $sandi);
-
+            
             if ($vl == null) {
-                return redirect()->to('/Login')->with('error', 'User dan sandi salah');
+                return redirect()->to('/login')->with('error', 'User dan sandi salah');
             } else {
                 $this->session->set('sudahLogin', true);
                 return redirect()->to('/beranda');

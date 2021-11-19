@@ -1,0 +1,28 @@
+<?php
+namespace App\Database\Seeds;
+
+use App\Models\Pengguna12200106;
+use CodeIgniter\Database\Seeder;
+
+class PenggunaSeeder extends Seeder
+{
+    public function run()
+    {
+        $data = [
+            [
+                'nama'     => 'Fenti',
+                'password' => md5('12200106')
+            ],
+            [
+                'nama'     => 'admin',
+                'password' => md5('12345')
+            ],
+            [
+                'nama'     => '12200106',
+                'password' => md5('Fenti_Nur')
+            ]
+        ];
+        $p = new Pengguna12200106();
+        $p->insertBatch($data);
+    }
+}

@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\Pengguna;
+use App\Models\Pengguna12200106;
 use Config\Services;
 
 class PenggunaController extends BaseController
@@ -11,7 +11,7 @@ class PenggunaController extends BaseController
     public function index()
     {
         return view('halaman/pengguna/table', [
-            'xx'    => (new Pengguna())->get()->getResult(),
+            'xx'    => (new Pengguna12200106())->get()->getResult(),
             'error' => $this->session->getFlashdata('error')
         ]);
     } 
